@@ -1,0 +1,17 @@
+<!-- post-list.component.html -->
+
+<div *ngIf="posts.length > 0; else noPosts">
+    <div class="card mb-3" *ngFor="let post of posts">
+      <div class="card-body">
+        <h5 class="card-title">{{ post.title }}</h5>
+        <p class="card-text">{{ post.body }}</p>
+        <hr>
+        <app-comments></app-comments>
+      </div>
+    </div>
+  </div>
+  
+  <ng-template #noPosts>
+    <p>Nenhum post disponível.</p>
+  </ng-template>
+  
