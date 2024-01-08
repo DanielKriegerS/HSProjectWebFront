@@ -8,4 +8,4 @@ export interface User {
         age: number;
         userType: string;
         createTime: Date;
-      }
+}
