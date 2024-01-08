@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
+import { Post } from '../../models/post';
 
 @Component({
   selector: 'app-posts',
@@ -7,7 +8,7 @@ import { ApiService } from '../../services/api.service';
   styleUrl: './posts.component.css'
 })
 export class PostsComponent implements OnInit{
-  posts: any[] = [];
+  posts: Post[] = [];
 
   constructor(private apiService: ApiService) {}
 

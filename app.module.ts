@@ -8,6 +8,7 @@ import { ReactionsComponent } from './src/components/reactions/reactions.compone
 import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing-module';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule
   ],
   providers: [],

@@ -1,12 +1,11 @@
-<!-- post-list.component.html -->
-
 <div *ngIf="posts.length > 0; else noPosts">
     <div class="card mb-3" *ngFor="let post of posts">
       <div class="card-body">
-        <h5 class="card-title">{{ post.title }}</h5>
+        <h5 class="card-title">{{ post.header }}</h5>
+        <p class="card-text">{{ post.desc }}</p>
         <p class="card-text">{{ post.body }}</p>
         <hr>
-        <app-comments></app-comments>
+        <app-comments [postId]="post.id"></app-comments>
       </div>
     </div>
   </div>
