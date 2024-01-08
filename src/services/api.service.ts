@@ -18,12 +18,20 @@ export class ApiService {
     return this.http.post<any>(`${this.apiUrl}/comments`, { body: newComment });
   }
 
-  getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.apiUrl}/posts`);
-  }
-
   getCommentsByPostId(postId: string): Observable<Comment[]> {
     return this.http.get<Comment[]>(`${this.apiUrl}/comments/commentsByPostId/${postId}`);
+  }
+
+  getUserById(userId: string): Observable<User> {
+    return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
+  }
+
+  getAllUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.apiUrl}/users`);
+  }
+
+  getPostsByUserId(userId: string): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.apiUrl}/users/${userId}/posts`);
   }
 
 }

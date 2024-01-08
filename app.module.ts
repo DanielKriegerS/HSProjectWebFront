@@ -9,6 +9,7 @@ import { CommonModule } from '@angular/common';
 import { AppRoutingModule } from './app-routing-module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { UserDisplayComponent } from './src/components/user-display/user-display.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { FormsModule } from '@angular/forms';
     MainPageComponent,
     PostsComponent,
     CommentsComponent,
+    UserDisplayComponent,
     ReactionsComponent
   ],
   imports: [

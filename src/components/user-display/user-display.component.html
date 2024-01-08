@@ -1,1 +1,11 @@
-<p>user-display works!</p>
+<div class="user-profile" *ngIf="user">
+    <h3>Perfil do Usuário</h3>
+    <div class="user-info">
+      <p><strong>Nome de Usuário:</strong> {{ user.userName }}</p>
+      <p><strong>Telefone:</strong> {{ user.phone }}</p>
+      <p><strong>Endereço:</strong> {{ user.address }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Idade:</strong> {{ user.age }}</p>
+    </div>
+  </div>
+  
