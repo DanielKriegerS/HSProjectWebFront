@@ -1,14 +1,12 @@
 <div class="container mt-5">
   <div class="row">
     <div class="col-12" *ngFor="let user of users">
-      <div class="card mb-4">
+      <div class="content card mb-4">
         <div class="d-flex">
           <div class="col-4">
-            <!-- Exibir o perfil do usuário -->
             <app-user-display [userId]="user.id"></app-user-display>
           </div>
-          <div class="col-7">
-            <!-- Exibir as postagens do usuário -->
+          <div class="posts col-7">
             <app-posts [user]="user"></app-posts>
           </div>
         </div>
