@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { User } from '../../models/user';
+import { faEdit } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-user-display',
@@ -8,8 +9,6 @@ import { User } from '../../models/user';
   styleUrl: './user-display.component.css'
 })
 export class UserDisplayComponent implements OnInit{
-
-  
 
   @Input()userId!: string;
   user!: User ;
@@ -31,4 +30,5 @@ export class UserDisplayComponent implements OnInit{
     );
   }
 
+  faEdit = faEdit;
 }

@@ -10,6 +10,7 @@ import { AppRoutingModule } from './app-routing-module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserDisplayComponent } from './src/components/user-display/user-display.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UserDisplayComponent } from './src/components/user-display/user-display
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule,
     AppRoutingModule
   ],
   providers: [],

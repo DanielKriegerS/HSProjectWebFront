@@ -1,5 +1,11 @@
 <div class="user-profile" *ngIf="user">
-    <h3>Perfil do Usuário</h3>
+    <h3>
+      Perfil do Usuário
+      <a routerLink="/perfil">
+        <fa-icon [icon]="faEdit"></fa-icon>
+      </a>
+    </h3>
+    
     <div class="user-info">
       <p><strong>Nome de Usuário:</strong> {{ user.userName }}</p>
       <p><strong>Telefone:</strong> {{ user.phone }}</p>

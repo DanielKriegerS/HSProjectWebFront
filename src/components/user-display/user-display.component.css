@@ -1,10 +1,10 @@
-* {
-    box-sizing: border-box;
-}
-
 .user-profile {
     border-radius: 5%;
     background-color: white;
     margin-right: 1em;
     padding: 1rem;
+}
+
+a {
+    margin-left: 1.5em;
 }

@@ -1,9 +1,11 @@
 .container {
-    padding: 1em;    
+   width: 100vw;
 }
 
 .content {
     background-image: linear-gradient(230deg, rgba(140, 30, 50, .9), rgba(50, 30, 140));
+    max-width: 100%;
+  
 }
 
 .card {

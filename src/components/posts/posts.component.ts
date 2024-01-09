@@ -2,6 +2,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api.service';
 import { Post } from '../../models/post';
 import { User } from '../../models/user';
+import { faEdit } from '@fortawesome/free-regular-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-posts',
@@ -26,4 +28,7 @@ export class PostsComponent implements OnInit {
       });
     }
   }
+
+  faEdit = faEdit;
+  faTrashAlt = faTrashAlt;
 }
