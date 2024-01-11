@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { UserDisplayComponent } from './src/components/user-display/user-display.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NavbarComponent } from './src/components/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MainPageComponent,
     PostsComponent,
     CommentsComponent,
+    NavbarComponent,
     UserDisplayComponent,
     ReactionsComponent
   ],
