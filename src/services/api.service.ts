@@ -15,7 +15,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   addComment(newComment: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/comments`, { body: newComment });
+    return this.http.post<Comment>(`${this.apiUrl}/comments`, { body: newComment }, { withCredentials: true });
   }
 
   getCommentsByPostId(postId: string): Observable<Comment[]> {
@@ -31,7 +31,7 @@ export class ApiService {
   }
 
   getPostsByUserId(userId: string): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.apiUrl}/users/${userId}/posts`);
+    return this.http.get<Post[]>(`${this.apiUrl}/posts/user/${userId}`);
   }
 
 }

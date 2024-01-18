@@ -21,13 +21,24 @@ export class PostsComponent implements OnInit {
   }
 
   loadPosts(): void {
-    if (this.user && this.user.id) {
-      this.apiService.getPostsByUserId(this.user.id).subscribe(posts => {
-        this.posts = posts;
-        console.log('Lista de posts do usuário:', this.posts);
-      });
+   if (this.user && this.user.id) {
+      this.apiService.getPostsByUserId(this.user.id).subscribe(
+        posts => {
+          this.posts = posts;
+          console.log('Posts loaded successfully:', this.posts);
+          console.log(this.posts); 
+          console.log(this.posts ? this.posts.length : 'Array is undefined');
+          
+        },
+        error => {
+          console.error('Error loading posts:', error);
+        }
+      );
+    } else {
+      console.warn('No user or user id found.');
     }
   }
+  
 
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;

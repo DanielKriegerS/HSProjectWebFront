@@ -12,7 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { UserDisplayComponent } from './src/components/user-display/user-display.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './src/components/navbar/navbar.component';
-
+import { LoginDisplayComponent } from './src/components/login-display/login-display.component';
+import { LoginPageComponent } from './src/components/login-page/login-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +21,8 @@ import { NavbarComponent } from './src/components/navbar/navbar.component';
     PostsComponent,
     CommentsComponent,
     NavbarComponent,
+    LoginPageComponent,
+    LoginDisplayComponent,
     UserDisplayComponent,
     ReactionsComponent
   ],
