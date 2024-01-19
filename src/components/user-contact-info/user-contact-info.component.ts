@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-
+import { Component, Input, OnInit } from '@angular/core';
+import { User } from '../../models/user';
 @Component({
   selector: 'app-user-contact-info',
-  standalone: true,
-  imports: [],
   templateUrl: './user-contact-info.component.html',
   styleUrl: './user-contact-info.component.css'
 })
-export class UserContactInfoComponent {
-
+export class UserContactInfoComponent implements OnInit {
+  @Input() user!: User;
+  
+  ngOnInit(): void {
+  }
+  
 }

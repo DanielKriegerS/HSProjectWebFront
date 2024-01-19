@@ -16,6 +16,8 @@ import { LoginDisplayComponent } from './src/components/login-display/login-disp
 import { LoginPageComponent } from './src/components/login-page/login-page.component';
 import { RegisterPageComponent } from './src/components/register-page/register-page.component';
 import { ProfilePageComponent } from './src/components/profile-page/profile-page.component';
+import { UserBasicInfoComponent } from './src/components/user-basic-info/user-basic-info.component';
+import { UserContactInfoComponent } from './src/components/user-contact-info/user-contact-info.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -30,6 +32,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserDisplayComponent,
     RegisterPageComponent,
     ProfilePageComponent,
+    UserBasicInfoComponent,
+    UserContactInfoComponent,
     ReactionsComponent
   ],
   imports: [

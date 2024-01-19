@@ -1,0 +1,21 @@
+.container {
+    margin: auto;
+}
+
+.basic-info {
+    background-color: rgba(15, 200, 30, .08);
+    border-radius: 5%;
+    padding: 1em;
+    margin: 0 .5em 0 3em;
+}
+
+.contact-info {
+    background-color: rgba(30, 200, 15, .18);
+    border-radius: 5%;
+    padding: 1em;
+}
+
+.btn {
+    margin-top: 1em;
+    width: 15%;
+}
