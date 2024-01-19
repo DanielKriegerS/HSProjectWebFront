@@ -6,15 +6,16 @@ import { ApiService } from '../../services/api.service';
 @Component({
   selector: 'app-register-page',
   templateUrl: './register-page.component.html',
-  styleUrl: './register-page.component.css'
+  styleUrls: ['./register-page.component.css']
 })
 export class RegisterPageComponent implements OnInit {
   userForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, 
-              private router: Router,
-              private apiService: ApiService) {}
-
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private apiService: ApiService,
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -28,21 +29,21 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onSubmit(): void {
-   const userData = { ...this.userForm.value, user_role: 'StandardUser' };
+    const userData = { ...this.userForm.value, user_role: 'StandardUser' };
 
-   this.apiService.registerUser(userData).subscribe(
-    (response: any) => {
-      if (response.success) {
-        this.router.navigate(['/profile']);
-      } else {
-        console.error(response.error);
+    this.apiService.registerUser(userData).subscribe(
+      (response: any) => {
+        if (response.success) {
+          const currentUserId = response.userId;
+          console.log(currentUserId);
+          this.router.navigate(['/profile', currentUserId], { state: { userData } });
+        } else {
+          console.error(response.error);
+        }
+      },
+      (error: any) => {
+        console.error(error);
       }
-    },
-    (error: any) => {
-      console.error(error);
-    }
-  );
-  
-  
-}
+    );
+  }
 }

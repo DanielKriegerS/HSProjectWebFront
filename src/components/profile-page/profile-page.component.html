@@ -1,1 +1,11 @@
-<p>profile-page works!</p>
+<div class="container mt-4">
+    <h2>Perfil do Usuário</h2>
+    <div *ngIf="user">
+      <p><strong>ID:</strong> {{ user.id }}</p>
+      <p><strong>Nome de Usuário:</strong> {{ user.userName || 'Não definido' }}</p>
+      <p><strong>Login:</strong> {{ user.userLogin }}</p>
+      <p><strong>Email:</strong> {{ user.email || 'Não definido' }}</p>
+      <button class="btn btn-primary">Editar Perfil</button>
+    </div>
+  </div>
+  
