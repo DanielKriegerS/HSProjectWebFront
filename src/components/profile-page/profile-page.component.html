@@ -1,13 +1,14 @@
 <div class="container mt-4 row">
   <h2 class="text-center">Perfil do Usuário</h2>
     <div class="basic-info col-5">
-      <app-user-basic-info [user]="user"></app-user-basic-info>
+      <app-user-basic-info [user]="user" [modoEdicao]="modoEdicao"></app-user-basic-info>
     </div>
     <div class="contact-info col-6">
-      <app-user-contact-info [user]="user"></app-user-contact-info>
+      <app-user-contact-info [user]="user" [modoEdicao]="modoEdicao"></app-user-contact-info>
     </div>
     <div class="text-center">
-      <button class="btn btn-primary">Editar Perfil</button>
+      <button class="btn btn-primary" (click)="alternarModoEdicao()">
+        {{ modoEdicao ? 'Salvar Alterações' : 'Editar Perfil' }}</button>
     </div>
      </div>
   

@@ -8,6 +8,8 @@ import { User } from '../../models/user';
 })
 export class UserBasicInfoComponent implements OnInit{
   @Input() user!: User ;
+  @Input() modoEdicao!: boolean;
+  
   ngOnInit(): void {
   }
 }

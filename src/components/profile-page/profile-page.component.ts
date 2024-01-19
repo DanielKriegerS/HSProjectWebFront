@@ -9,6 +9,13 @@ import { User } from '../../models/user';
 })
 export class ProfilePageComponent implements OnInit {
   user! : User;
+
+  modoEdicao: boolean = false;
+
+  alternarModoEdicao() {
+    this.modoEdicao = !this.modoEdicao;
+  }
+  
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,

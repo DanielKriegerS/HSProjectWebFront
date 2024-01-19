@@ -1,6 +1,18 @@
 <h4>Informações de contato</h4>
-    <div *ngIf="user">
-      <p><strong>Telefone:</strong> {{ user.phone }}</p>
-      <p><strong>Endereço:</strong> {{ user.address  }}</p>
-      <p><strong>E-mail:</strong> {{ user.email }}</p>
-    </div>
+<div *ngIf="user">
+  <div *ngIf="!modoEdicao">
+    <p><strong>Telefone:</strong> {{ user.phone }}</p>
+    <p><strong>Endereço:</strong> {{ user.address }}</p>
+    <p><strong>E-mail:</strong> {{ user.email }}</p>
+  </div>
+  <div *ngIf="modoEdicao">
+    <label>Telefone:</label>
+    <input [(ngModel)]="user.phone" />
+
+    <label>Endereço:</label>
+    <input [(ngModel)]="user.address" />
+
+    <label>E-mail:</label>
+    <input [(ngModel)]="user.email" />
+  </div>
+</div>

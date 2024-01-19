@@ -1,8 +1,22 @@
 <h4>Informações de usuário</h4>
-    <div *ngIf="user">
-      <p><strong>ID:</strong> {{ user.id }}</p>
-      <p><strong>Nome de Usuário:</strong> {{ user.userName || user.userLogin }}</p>
-      <p><strong>Login:</strong> {{ user.userLogin }}</p>
-      <p><strong>Email:</strong> {{ user.email }}</p>
-      <p><strong>Idade:</strong> {{ user.age }}</p>
-    </div>
+<div *ngIf="user">
+  <div *ngIf="!modoEdicao">
+    <p><strong>ID:</strong> {{ user.id }}</p>
+    <p><strong>Nome de Usuário:</strong> {{ user.userName || user.userLogin }}</p>
+    <p><strong>Login:</strong> {{ user.userLogin }}</p>
+    <p><strong>Idade:</strong> {{ user.age }}</p>
+  </div>
+  <div *ngIf="modoEdicao">
+    <label>ID:</label>
+    <input [(ngModel)]="user.id" />
+
+    <label>Nome de Usuário:</label>
+    <input [(ngModel)]="user.userName" />
+
+    <label>Login:</label>
+    <input [(ngModel)]="user.userLogin" />
+
+    <label>Idade:</label>
+    <input [(ngModel)]="user.age" />
+  </div>
+</div>
