@@ -19,13 +19,11 @@ export class MainPageComponent implements OnInit {
   getAllUsers() {
     this.apiService.getAllUsers().subscribe(
       (users: User[]) => {
-        this.users = users;
+        this.users = users.filter(user => user.userName !== null);
       },
       (error) => {
         console.error('Erro ao buscar todos os usuários:', error);
       }
     );
-    }
-      
-  
   }
+}

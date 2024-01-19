@@ -5,6 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.css'
 })
-export class ProfilePageComponent {
+export class ProfilePageComponent {}
 
-}
