@@ -29,14 +29,13 @@ export class RegisterPageComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const userData = { ...this.userForm.value, user_role: 'StandardUser' };
+    const userData = this.userForm.value;
 
     this.apiService.registerUser(userData).subscribe(
       (response: any) => {
         if (response.success) {
           const currentUserId = response.userId;
-          console.log(currentUserId);
-          this.router.navigate(['/profile', currentUserId], { state: { userData } });
+          this.router.navigate(['/profile', currentUserId]);
         } else {
           console.error(response.error);
         }

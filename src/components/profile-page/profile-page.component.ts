@@ -1,23 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ApiService } from '../../services/api.service';
 import { User } from '../../models/user';
 
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
-  styleUrl: './profile-page.component.css'
+  styleUrls: ['./profile-page.component.css']
 })
-export class ProfilePageComponent implements OnInit{
-  previousUserData: any;
-  user!:User;
+export class ProfilePageComponent implements OnInit {
+  user: User = {} as User;
 
-  constructor(private router: Router) {}
+  constructor(private route: ActivatedRoute, private apiService: ApiService) {}
 
   ngOnInit(): void {
-    const navigation = this.router.getCurrentNavigation();
-    if (navigation && navigation.extras && navigation.extras.state) {
-      this.previousUserData = navigation.extras.state['userData'];
-    }
+    this.route.params.subscribe(params => {
+      const userId = params['id'];
+
+      this.apiService.getUserById(userId).subscribe(
+        (userData: User) => {
+          this.user = userData;
+        },
+        (error) => {
+          console.error('Erro ao obter informações do usuário:', error);
+        }
+      );
+    });
   }
 }
-

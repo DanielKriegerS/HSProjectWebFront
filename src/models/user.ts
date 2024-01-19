@@ -7,6 +7,6 @@ export interface User {
         address: string;
         email: string;
         age: number;
-        userType: string;
+        user_role: string;
         createTime: Date;
 }
