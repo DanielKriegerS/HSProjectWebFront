@@ -15,6 +15,7 @@ import { NavbarComponent } from './src/components/navbar/navbar.component';
 import { LoginDisplayComponent } from './src/components/login-display/login-display.component';
 import { LoginPageComponent } from './src/components/login-page/login-page.component';
 import { RegisterPageComponent } from './src/components/register-page/register-page.component';
+import { ProfilePageComponent } from './src/components/profile-page/profile-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginDisplayComponent,
     UserDisplayComponent,
     RegisterPageComponent,
+    ProfilePageComponent,
     ReactionsComponent
   ],
   imports: [
