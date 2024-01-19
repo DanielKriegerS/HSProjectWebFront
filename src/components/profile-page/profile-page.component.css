@@ -3,14 +3,14 @@
 }
 
 .basic-info {
-    background-color: rgba(15, 200, 30, .08);
+    background-color: rgba(15, 60, 30, .6);
     border-radius: 5%;
     padding: 1em;
     margin: 0 .5em 0 3em;
 }
 
 .contact-info {
-    background-color: rgba(30, 200, 15, .18);
+    background-color: rgba(15, 60, 30, .6);
     border-radius: 5%;
     padding: 1em;
 }

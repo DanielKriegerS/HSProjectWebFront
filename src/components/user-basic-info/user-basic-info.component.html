@@ -1,4 +1,4 @@
-<h4>Informações de usuário</h4>
+<h4 class="title text-center">Informações de usuário</h4>
 <div *ngIf="user">
   <div *ngIf="!modoEdicao">
     <p><strong>ID:</strong> {{ user.id }}</p>
@@ -7,16 +7,24 @@
     <p><strong>Idade:</strong> {{ user.age }}</p>
   </div>
   <div *ngIf="modoEdicao">
-    <label>ID:</label>
-    <input [(ngModel)]="user.id" />
+    <div class="form-group">
+      <label for="id">ID:</label>
+      <input id="id" class="form-control" [(ngModel)]="user.id" />
+    </div>
 
-    <label>Nome de Usuário:</label>
-    <input [(ngModel)]="user.userName" />
+    <div class="form-group">
+      <label for="userName">Nome de Usuário:</label>
+      <input id="userName" class="form-control" [(ngModel)]="user.userName" />
+    </div>
 
-    <label>Login:</label>
-    <input [(ngModel)]="user.userLogin" />
+    <div class="form-group">
+      <label for="userLogin">Login:</label>
+      <input id="userLogin" class="form-control" [(ngModel)]="user.userLogin" />
+    </div>
 
-    <label>Idade:</label>
-    <input [(ngModel)]="user.age" />
+    <div class="form-group">
+      <label for="age">Idade:</label>
+      <input id="age" class="form-control" [(ngModel)]="user.age" />
+    </div>
   </div>
 </div>

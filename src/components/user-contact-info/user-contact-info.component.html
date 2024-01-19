@@ -1,4 +1,4 @@
-<h4>Informações de contato</h4>
+<h4 class="title text-center">Informações de contato</h4>
 <div *ngIf="user">
   <div *ngIf="!modoEdicao">
     <p><strong>Telefone:</strong> {{ user.phone }}</p>
@@ -6,13 +6,19 @@
     <p><strong>E-mail:</strong> {{ user.email }}</p>
   </div>
   <div *ngIf="modoEdicao">
-    <label>Telefone:</label>
-    <input [(ngModel)]="user.phone" />
+    <div class="form-group">
+      <label for="phone">Telefone:</label>
+      <input id="phone" class="form-control" [(ngModel)]="user.phone" />
+    </div>
 
-    <label>Endereço:</label>
-    <input [(ngModel)]="user.address" />
+    <div class="form-group">
+      <label for="address">Endereço:</label>
+      <input id="address" class="form-control" [(ngModel)]="user.address" />
+    </div>
 
-    <label>E-mail:</label>
-    <input [(ngModel)]="user.email" />
+    <div class="form-group">
+      <label for="email">E-mail:</label>
+      <input id="email" class="form-control" [(ngModel)]="user.email" />
+    </div>
   </div>
 </div>
