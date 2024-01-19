@@ -34,4 +34,9 @@ export class ApiService {
     return this.http.get<Post[]>(`${this.apiUrl}/posts/user/${userId}`);
   }
 
+  registerUser(userData: any): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/auth/register`, userData);
+  }
+  
+
 }

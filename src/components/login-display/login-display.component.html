@@ -1,5 +1,3 @@
-<!-- login-display.html -->
-
 <div class="container">
     <div class="row justify-content-center align-items-center min-vh-100">
       <div class="col-md-6">
@@ -7,16 +5,16 @@
           <div class="card-body">
             <form>
               <div class="mb-3">
-                <label for="username" class="form-label">Nome de usuário:</label>
+                <label for="username" class="form-label">Login:</label>
                 <input type="text" class="form-control" id="username" placeholder="Digite seu nome de usuário">
               </div>
               <div class="mb-3">
                 <label for="password" class="form-label">Senha:</label>
                 <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
               </div>
-              <div class="mb-3">
-                <button type="button" class="btn btn-primary">Entrar</button>
-                <button type="button" class="btn btn-secondary">Registrar</button>
+              <div class="text-center d-flex flex-column align-items-center">
+                <button type="button" class="col-4 btn btn-primary mb-2">Entrar</button>
+                <a [routerLink]="['/register']" type="button" class="col-4 btn btn-secondary">Registrar</a>
               </div>
             </form>
           </div>

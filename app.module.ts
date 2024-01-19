@@ -14,6 +14,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NavbarComponent } from './src/components/navbar/navbar.component';
 import { LoginDisplayComponent } from './src/components/login-display/login-display.component';
 import { LoginPageComponent } from './src/components/login-page/login-page.component';
+import { RegisterPageComponent } from './src/components/register-page/register-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,7 @@ import { LoginPageComponent } from './src/components/login-page/login-page.compo
     LoginPageComponent,
     LoginDisplayComponent,
     UserDisplayComponent,
+    RegisterPageComponent,
     ReactionsComponent
   ],
   imports: [
@@ -32,7 +36,8 @@ import { LoginPageComponent } from './src/components/login-page/login-page.compo
     HttpClientModule,
     FormsModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

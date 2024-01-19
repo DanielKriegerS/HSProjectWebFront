@@ -1,0 +1,10 @@
+.form-group {
+    display: inline-block;
+    text-align: left;
+    width: 70%;
+    margin-bottom: .2em;
+}
+
+.btn-primary {
+    margin: 0;
+}
