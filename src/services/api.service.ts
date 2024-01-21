@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from '../models/user'; 
 import { Post } from '../models/post';
 import { Comment } from '../models/comment';
-import { Reaction } from '../models/reaction';
 
 @Injectable({
   providedIn: 'root'
@@ -22,21 +20,9 @@ export class ApiService {
     return this.http.get<Comment[]>(`${this.apiUrl}/comments/commentsByPostId/${postId}`);
   }
 
-  getUserById(userId: string): Observable<User> {
-    return this.http.get<User>(`${this.apiUrl}/users/${userId}`);
-  }
-
-  getAllUsers(): Observable<User[]> {
-    return this.http.get<User[]>(`${this.apiUrl}/users`);
-  }
-
+ 
   getPostsByUserId(userId: string): Observable<Post[]> {
     return this.http.get<Post[]>(`${this.apiUrl}/posts/user/${userId}`);
   }
-
-  registerUser(userData: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/auth/register`, userData);
-  }
-  
 
 }
