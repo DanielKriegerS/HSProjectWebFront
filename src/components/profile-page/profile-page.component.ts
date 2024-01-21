@@ -12,9 +12,7 @@ export class ProfilePageComponent implements OnInit {
 
   modoEdicao: boolean = false;
 
-  alternarModoEdicao() {
-    this.modoEdicao = !this.modoEdicao;
-  }
+  componenteAtual: string = ''; 
   
   constructor(
     private route: ActivatedRoute,
@@ -34,5 +32,13 @@ export class ProfilePageComponent implements OnInit {
         }
       );
     });
+  }
+
+alternarModoEdicao() {
+  this.modoEdicao = !this.modoEdicao;
+}
+
+mostrarComponente(componente: string): void {
+  this.componenteAtual = componente;
 }
 }

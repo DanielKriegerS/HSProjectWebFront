@@ -1,14 +1,30 @@
-<div class="container mt-4 row">
+<div class="container mt-4">
   <h2 class="text-center">Perfil do Usuário</h2>
-    <div class="basic-info col-5">
+
+  <div class="row">
+    <div class="col-6 text-center">
+      <i class="fas fa-user mb-2" (click)="mostrarComponente('basicInfo')"></i>
+    </div>
+
+    <div class="col-6 text-center">
+      <i class="fas fa-address-card mb-2" (click)="mostrarComponente('contactInfo')"></i>
+    </div>
+  </div>
+
+  <div class="row containerInfo">
+    <div *ngIf="componenteAtual === 'basicInfo'">
       <app-user-basic-info [user]="user" [modoEdicao]="modoEdicao"></app-user-basic-info>
     </div>
-    <div class="contact-info col-6">
+  </div>
+  <div class="row containerInfo">
+    <div *ngIf="componenteAtual === 'contactInfo'">
       <app-user-contact-info [user]="user" [modoEdicao]="modoEdicao"></app-user-contact-info>
     </div>
-    <div class="text-center">
-      <button class="btn btn-primary" (click)="alternarModoEdicao()">
-        {{ modoEdicao ? 'Salvar Alterações' : 'Editar Perfil' }}</button>
-    </div>
-     </div>
+  </div>
   
+  <div class="text-center mt-3">
+    <button class="btn btn-primary mb-3" (click)="alternarModoEdicao()">
+      {{ modoEdicao ? 'Salvar Alterações' : 'Editar Perfil' }}
+    </button>
+  </div>
+</div>
