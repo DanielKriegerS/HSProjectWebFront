@@ -1,7 +1,7 @@
 <div class="user-profile" *ngIf="user">
     <h3>
       Perfil do Usuário
-      <a routerLink="/profile">
+      <a routerLink="/profile/{{user.id}}">
         <fa-icon [icon]="faEdit"></fa-icon>
       </a>
     </h3>
