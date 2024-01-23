@@ -1,0 +1,9 @@
+.btn {
+    color: rgba(200, 200, 200, .8);
+    background-color: rgba(90, 20, 20, .6);
+}
+
+.btn:hover {
+    color: rgba(230, 220, 230, .9);
+    background-color: rgba(80, 20, 30, .8);
+}
