@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
-import { ApiService } from '../../services/api.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-main-page',
@@ -10,14 +10,14 @@ import { ApiService } from '../../services/api.service';
 export class MainPageComponent implements OnInit {
   users: User[] = [];
 
-  constructor(private apiService: ApiService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.getAllUsers();
   }
 
   getAllUsers() {
-    this.apiService.getAllUsers().subscribe(
+    this.userService.getAllUsers().subscribe(
       (users: User[]) => {
         this.users = users.filter(user => user.userName !== null);
       },

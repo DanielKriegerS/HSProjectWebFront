@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ApiService } from '../../services/api.service';
+import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { faEdit } from '@fortawesome/free-regular-svg-icons';
 
@@ -13,14 +13,14 @@ export class UserDisplayComponent implements OnInit{
   @Input()userId!: string;
   user!: User ;
 
-  constructor(private apiService:ApiService) {}
+  constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.getUserDetails();
   }
 
   getUserDetails() {
-    this.apiService.getUserById(this.userId).subscribe(
+    this.userService.getUserById(this.userId).subscribe(
       (user: User) => {
         this.user = user;
       },
@@ -28,6 +28,12 @@ export class UserDisplayComponent implements OnInit{
         console.error('Erro ao buscar detalhes do usuário:', error);
       }
     );
+  }
+
+  formatPhone(telefone: number): string {
+    const telefoneString = telefone.toString();
+    // (00)00000-0000
+    return telefoneString.replace(/(\d{2})(\d{5})(\d{4})/, '($1)$2-$3');
   }
 
   faEdit = faEdit;

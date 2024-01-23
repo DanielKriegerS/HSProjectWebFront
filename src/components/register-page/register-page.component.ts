@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from '../../services/api.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-register-page',
@@ -14,7 +14,7 @@ export class RegisterPageComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private apiService: ApiService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class RegisterPageComponent implements OnInit {
   onSubmit(): void {
     const userData = this.userForm.value;
 
-    this.apiService.registerUser(userData).subscribe(
+    this.userService.registerUser(userData).subscribe(
       (response: any) => {
         if (response.success) {
           const currentUserId = response.userId;

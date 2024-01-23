@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../services/api.service';
+import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
+
 @Component({
   selector: 'app-profile-page',
   templateUrl: './profile-page.component.html',
   styleUrls: ['./profile-page.component.css']
 })
+
 export class ProfilePageComponent implements OnInit {
-  user! : User;
-
+  user!: User;
+  componenteAtual: string = '';
   modoEdicao: boolean = false;
-
-  componenteAtual: string = ''; 
   
   constructor(
     private route: ActivatedRoute,
-    private apiService: ApiService,
+    private userService: UserService
   ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const userId = params['id'];
 
-      this.apiService.getUserById(userId).subscribe(
+      this.userService.getUserById(userId).subscribe(
         (userData) => {
           this.user = userData;
         },
@@ -32,13 +32,14 @@ export class ProfilePageComponent implements OnInit {
         }
       );
     });
+
+    
+  }
+  mostrarComponente(componente: string): void {
+    this.componenteAtual = componente;
   }
 
-alternarModoEdicao() {
-  this.modoEdicao = !this.modoEdicao;
-}
-
-mostrarComponente(componente: string): void {
-  this.componenteAtual = componente;
-}
+  alternarModoEdicao() {
+    this.modoEdicao = !this.modoEdicao;
+  }
 }

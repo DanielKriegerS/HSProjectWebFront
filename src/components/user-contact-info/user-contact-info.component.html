@@ -1,14 +1,14 @@
 <h4 class="title text-center">Informações de contato</h4>
 <div *ngIf="user">
   <div *ngIf="!modoEdicao">
-    <p><strong>Telefone:</strong> {{ user.phone }}</p>
-    <p><strong>Endereço:</strong> {{ user.address }}</p>
-    <p><strong>E-mail:</strong> {{ user.email }}</p>
+    <p><strong>Telefone:</strong> {{ formatPhone(user.phone) }}</p>
+    <p><strong>Endereço:</strong> {{ user.address || "Não informado" }}</p>
+    <p><strong>E-mail:</strong> {{ user.email || "Não informado" }}</p>
   </div>
   <div *ngIf="modoEdicao">
     <div class="form-group">
       <label for="phone">Telefone:</label>
-      <input id="phone" class="form-control" [(ngModel)]="user.phone" />
+      <input mask="(00)00000-0000" id="phone" class="form-control" [(ngModel)]="user.phone" />
     </div>
 
     <div class="form-group">

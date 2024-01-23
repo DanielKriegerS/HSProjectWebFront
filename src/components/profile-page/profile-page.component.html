@@ -23,8 +23,6 @@
   </div>
   
   <div class="text-center mt-3">
-    <button class="btn btn-primary mb-3" (click)="alternarModoEdicao()">
-      {{ modoEdicao ? 'Salvar Alterações' : 'Editar Perfil' }}
-    </button>
+    <app-save-button [user]="user" [modoEdicao]="modoEdicao" (modoEdicaoChange)="alternarModoEdicao()"></app-save-button>
   </div>
 </div>

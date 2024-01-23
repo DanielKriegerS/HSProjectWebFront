@@ -4,7 +4,7 @@
     <p><strong>ID:</strong> {{ user.id }}</p>
     <p><strong>Nome de Usuário:</strong> {{ user.userName || user.userLogin }}</p>
     <p><strong>Login:</strong> {{ user.userLogin }}</p>
-    <p><strong>Idade:</strong> {{ user.age }}</p>
+    <p><strong>Idade:</strong> {{ user.age || "Não informado"}}</p>
   </div>
   <div *ngIf="modoEdicao">
     <div class="form-group">

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { AppComponent } from './src/app/app.component';
 import { MainPageComponent } from './src/components/main-page/main-page.component';
 import { PostsComponent } from './src/components/posts/posts.component';
@@ -18,6 +19,7 @@ import { RegisterPageComponent } from './src/components/register-page/register-p
 import { ProfilePageComponent } from './src/components/profile-page/profile-page.component';
 import { UserBasicInfoComponent } from './src/components/user-basic-info/user-basic-info.component';
 import { UserContactInfoComponent } from './src/components/user-contact-info/user-contact-info.component';
+import { SaveButtonComponent } from './src/components/save-button/save-button.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -34,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfilePageComponent,
     UserBasicInfoComponent,
     UserContactInfoComponent,
+    SaveButtonComponent,
     ReactionsComponent
   ],
   imports: [
@@ -43,9 +46,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     FormsModule,
     FontAwesomeModule,
     AppRoutingModule,
+    NgxMaskDirective,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [provideNgxMask({ })],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
