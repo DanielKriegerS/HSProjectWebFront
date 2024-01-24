@@ -1,10 +1,8 @@
-import { User } from "./user";
-
 export interface Post {
-  id: string;
-  user: User;
+  id?: string;
+  userId: string;
   header: string;
   desc: string;
   body: string;
-  createTime: Date;
+  createTime?: Date;
 }

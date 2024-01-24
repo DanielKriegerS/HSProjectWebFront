@@ -13,6 +13,7 @@ import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 export class PostsComponent implements OnInit {
   @Input() user!: User;
   posts: Post[] = [];
+  creatingPost: boolean = false;
 
   constructor(private apiService: ApiService) {}
 
@@ -37,6 +38,26 @@ export class PostsComponent implements OnInit {
     } else {
       console.warn('No user or user id found.');
     }
+  }
+
+  startCreatingPost(): void {
+    this.creatingPost = true;
+  }
+
+  cancelCreatingPost(): void {
+    this.creatingPost = false;
+  }
+
+  submitNewPost(newPost: Post): void {
+    this.apiService.createPost(newPost).subscribe(
+      createdPost => {
+        this.posts.push(createdPost);
+        this.creatingPost = false;
+      },
+      error => {
+        console.error('Erro ao criar o post:', error);
+      }
+    );
   }
   
 

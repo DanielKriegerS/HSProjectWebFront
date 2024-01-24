@@ -25,4 +25,8 @@ export class ApiService {
     return this.http.get<Post[]>(`${this.apiUrl}/posts/user/${userId}`);
   }
 
+  createPost(newPost: Post): Observable<Post> {
+    console.log(newPost)
+    return this.http.post<Post>(`${this.apiUrl}/posts`, newPost);
+  }
 }
