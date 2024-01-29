@@ -13,22 +13,22 @@ export class PostService {
 
   creatingPost$ = this.creatingPostSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
-
-  getPostsByUserId(userId: string): Observable<Post[]> {
-    return this.http.get<Post[]>(`${this.apiUrl}/posts/user/${userId}`);
-  }
-
-  createPost(newPost: Post): Observable<Post> {
-    console.log(newPost);
-    return this.http.post<Post>(`${this.apiUrl}/posts`, newPost);
-  }
-
+  constructor(private http: HttpClient) {}  
+  
   startCreatingPost(): void {
     this.creatingPostSubject.next(true);
   }
 
   cancelCreatingPost(): void {
     this.creatingPostSubject.next(false);
+  }
+  
+  getPostsByUserId(userId: string): Observable<Post[]> {
+    return this.http.get<Post[]>(`${this.apiUrl}/posts/user/${userId}`);
+  }
+
+  createPost(newPost: Post): Observable<Post> {
+    console.log('Novo post a ser criado:', newPost);
+    return this.http.post<Post>(`${this.apiUrl}/posts`, newPost);
   }
 }
