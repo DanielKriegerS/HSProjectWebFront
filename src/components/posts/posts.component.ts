@@ -24,6 +24,7 @@ export class PostsComponent implements OnInit {
     this.postService.creatingPost$.subscribe((creatingPost) => {
       this.creatingPost = creatingPost;
     });
+
   }
 
   loadPosts(): void {
@@ -45,6 +46,11 @@ export class PostsComponent implements OnInit {
     }
   }  
 
+  onPostCreated(): void {
+    this.creatingPost = false;
+    this.loadPosts();
+  }
+  
   faEdit = faEdit;
   faTrashAlt = faTrashAlt;
 }

@@ -23,5 +23,5 @@
   </ng-template>
 </div>
 <ng-template #newPostForm>
-  <app-new-post-form *ngIf="creatingPost" [userId]="user.id"></app-new-post-form>
+  <app-new-post-form *ngIf="creatingPost" [userId]="user.id" (onPostCreated)="onPostCreated()"></app-new-post-form>
 </ng-template>

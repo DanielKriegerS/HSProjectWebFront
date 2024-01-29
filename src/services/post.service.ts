@@ -28,7 +28,6 @@ export class PostService {
   }
 
   createPost(newPost: Post): Observable<Post> {
-    console.log('Novo post a ser criado:', newPost);
     return this.http.post<Post>(`${this.apiUrl}/posts`, newPost);
   }
 }
