@@ -20,6 +20,7 @@ import { ProfilePageComponent } from './src/components/profile-page/profile-page
 import { UserBasicInfoComponent } from './src/components/user-basic-info/user-basic-info.component';
 import { UserContactInfoComponent } from './src/components/user-contact-info/user-contact-info.component';
 import { SaveButtonComponent } from './src/components/save-button/save-button.component';
+import { NewPostFormComponent } from './src/components/new-post-form/new-post-form.component';
 import { NewPostButtonComponent } from './src/components/new-post-button/new-post-button.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -39,6 +40,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     UserContactInfoComponent,
     SaveButtonComponent,
     NewPostButtonComponent,
+    NewPostFormComponent,
     ReactionsComponent
   ],
   imports: [
