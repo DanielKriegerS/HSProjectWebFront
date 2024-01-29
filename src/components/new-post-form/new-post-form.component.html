@@ -1,0 +1,19 @@
+<div class="new-post-container">
+    <form (ngSubmit)="submitPost()" [formGroup]="newPostForm">
+      <div class="form-group">
+        <label for="postHeader">Título do Post:</label>
+        <input type="text" id="postHeader" formControlName="header" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="postDesc">Descrição do Post:</label>
+        <input type="text" id="postDesc" formControlName="desc" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="postBody">Corpo do Post:</label>
+        <textarea id="postBody" formControlName="body" class="form-control"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Criar Post</button>
+      <button type="button" (click)="cancel()" class="btn btn-secondary">Cancelar</button>
+    </form>
+  </div>
+  
