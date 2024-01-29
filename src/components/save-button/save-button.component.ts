@@ -1,7 +1,10 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
-import {OnInit} from '@angular/core';
+import { OnInit } from '@angular/core';
+import { FormGroup } from '@angular/forms';
+import { SharedEventsService } from '../../services/shared-events.service';
+
 @Component({
   selector: 'app-save-button',
   template: `
@@ -10,29 +13,35 @@ import {OnInit} from '@angular/core';
     </button>
   `,
 })
-export class SaveButtonComponent implements OnInit{
+export class SaveButtonComponent implements OnInit {
   @Input() modoEdicao: boolean = false;
+  @Input() userForm!: FormGroup;
   @Input() user!: User;
-  @Output() modoEdicaoChange = new EventEmitter<boolean>();
 
-  constructor(private userService: UserService) {}
+  constructor(
+    private userService: UserService,
+    private sharedEvents: SharedEventsService
+  ) {}
 
   ngOnInit(): void {
+    this.sharedEvents.modoEdicaoChange.subscribe((newModoEdicao: boolean) => {
+      this.modoEdicao = newModoEdicao;
+    });
   }
 
   onSaveClick(): void {
-    if (this.modoEdicao) {
-      this.userService.updateUser(this.user.id, this.user).subscribe(
+    if (this.userForm.valid && this.modoEdicao) {
+      this.userService.updateUser(this.userForm.value.id, this.userForm.value).subscribe(
         () => {
           console.log('Usuário atualizado com sucesso.');
-          this.modoEdicaoChange.emit(!this.modoEdicao);
+          this.sharedEvents.modoEdicaoChange.emit(false);
         },
         (error) => {
           console.error('Erro ao atualizar usuário:', error);
         }
       );
     } else {
-      this.modoEdicaoChange.emit(!this.modoEdicao);
+      this.sharedEvents.modoEdicaoChange.emit(!this.modoEdicao);
     }
   }
 }

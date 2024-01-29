@@ -1,24 +1,33 @@
 <h4 class="title text-center">Informações de contato</h4>
-<div *ngIf="user">
+
   <div *ngIf="!modoEdicao">
-    <p><strong>Telefone:</strong> {{ formatPhone(user.phone) }}</p>
+    <p><strong>Telefone:</strong> {{ formatPhone(user.phone) || "Não informado"}}</p>
     <p><strong>Endereço:</strong> {{ user.address || "Não informado" }}</p>
     <p><strong>E-mail:</strong> {{ user.email || "Não informado" }}</p>
   </div>
-  <div *ngIf="modoEdicao">
-    <div class="form-group">
+
+  <div [formGroup]="userForm" *ngIf="modoEdicao">
+    <div class="form-group" [class.has-error]="userForm.get('phone')?.invalid && userForm.get('phone')?.dirty">
       <label for="phone">Telefone:</label>
-      <input mask="(00)00000-0000" id="phone" class="form-control" [(ngModel)]="user.phone" />
+      <input mask="(00)00000-0000" id="phone" class="form-control" formControlName="phone" required />
+      <div *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.dirty" class="text-danger">
+        Telefone é obrigatório.
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [class.has-error]="userForm.get('address')?.invalid && userForm.get('address')?.dirty">
       <label for="address">Endereço:</label>
-      <input id="address" class="form-control" [(ngModel)]="user.address" />
+      <input id="address" class="form-control" formControlName="address" required />
+      <div *ngIf="userForm.get('address')?.invalid && userForm.get('address')?.dirty" class="text-danger">
+        Endereço é obrigatório.
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [class.has-error]="userForm.get('email')?.invalid && userForm.get('email')?.dirty">
       <label for="email">E-mail:</label>
-      <input id="email" class="form-control" [(ngModel)]="user.email" />
+      <input id="email" class="form-control" formControlName="email" required />
+      <div *ngIf="userForm.get('email')?.invalid && userForm.get('email')?.dirty" class="text-danger">
+        E-mail é obrigatório.
+      </div>
     </div>
   </div>
-</div>

@@ -1,30 +1,36 @@
 <h4 class="title text-center">Informações de usuário</h4>
-<div *ngIf="user">
-  <div *ngIf="!modoEdicao">
+
+ <div *ngIf="!modoEdicao">
     <p><strong>ID:</strong> {{ user.id }}</p>
     <p><strong>Nome de Usuário:</strong> {{ user.userName || user.userLogin }}</p>
     <p><strong>Login:</strong> {{ user.userLogin }}</p>
     <p><strong>Idade:</strong> {{ user.age || "Não informado"}}</p>
   </div>
-  <div *ngIf="modoEdicao">
-    <div class="form-group">
-      <label for="id">ID:</label>
-      <input id="id" class="form-control" [(ngModel)]="user.id" />
-    </div>
 
-    <div class="form-group">
+  <div  [formGroup]="userForm" *ngIf="modoEdicao">
+    <p><strong>ID:</strong> {{ user.id }}</p>
+
+    <div class="form-group" [class.has-error]="userForm.get('userName')?.invalid && userForm.get('userName')?.dirty">
       <label for="userName">Nome de Usuário:</label>
-      <input id="userName" class="form-control" [(ngModel)]="user.userName" />
+      <input id="userName" class="form-control" formControlName="userName" required />
+      <div *ngIf="userForm.get('userName')?.invalid && userForm.get('userName')?.dirty" class="text-danger">
+        Nome de Usuário é obrigatório.
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [class.has-error]="userForm.get('userLogin')?.invalid && userForm.get('userLogin')?.dirty">
       <label for="userLogin">Login:</label>
-      <input id="userLogin" class="form-control" [(ngModel)]="user.userLogin" />
+      <input id="userLogin" class="form-control" formControlName="userLogin" required />
+      <div *ngIf="userForm.get('userLogin')?.invalid && userForm.get('userLogin')?.dirty" class="text-danger">
+        Login é obrigatório.
+      </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" [class.has-error]="userForm.get('age')?.invalid && userForm.get('age')?.dirty">
       <label for="age">Idade:</label>
-      <input id="age" class="form-control" [(ngModel)]="user.age" />
+      <input id="age" class="form-control" formControlName="age" required />
+      <div *ngIf="userForm.get('age')?.invalid && userForm.get('age')?.dirty" class="text-danger">
+        Idade é obrigatória.
+      </div>
     </div>
   </div>
-</div>
