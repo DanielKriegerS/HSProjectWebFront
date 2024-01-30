@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, SimpleChanges } from '@angular/core';
 import { User } from '../../models/user';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SharedEventsService } from '../../services/shared-events.service';
@@ -22,8 +22,26 @@ export class UserBasicInfoComponent  {
     });
   }
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['modoEdicao'] && changes['modoEdicao'].currentValue === false) {
+      this.reloadUserInfo();
+    }
+  }
+
   onModoEdicaoChange(): void {
     this.sharedEvent.modoEdicaoChange.emit(!this.modoEdicao);
   }
-  
+
+  private reloadUserInfo(): void {
+    const userName = this.userForm.get('userName')?.value;
+    const userLogin = this.userForm.get('userLogin')?.value;
+    const age = this.userForm.get('age')?.value;
+
+    this.user = {
+      ...this.user,
+      userName: userName,
+      userLogin: userLogin,
+      age: age
+    };
   }
+}
