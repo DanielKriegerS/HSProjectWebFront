@@ -9,7 +9,7 @@
   <div [formGroup]="userForm" *ngIf="modoEdicao">
     <div class="form-group" [class.has-error]="userForm.get('phone')?.invalid && userForm.get('phone')?.dirty">
       <label for="phone">Telefone:</label>
-      <input mask="(00)00000-0000" id="phone" class="form-control" formControlName="phone" required />
+      <input mask="(00) 0 0000-0009" id="phone" class="form-control" formControlName="phone" required />
       <div *ngIf="userForm.get('phone')?.invalid && userForm.get('phone')?.dirty" class="text-danger">
         Telefone é obrigatório.
       </div>

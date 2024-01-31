@@ -48,8 +48,18 @@ export class UserContactInfoComponent  {
     if (telefone == null) {
       return 'Não informado';
     }
+
     const telefoneString = telefone.toString();
-    // (00)00000-0000
-    return telefoneString.replace(/(\d{2})(\d{5})(\d{4})/, '($1)$2-$3');
+
+    if (telefoneString.length === 11 && telefoneString[2] === '9') {
+      // (00)90000-0000 
+      return telefoneString.replace(/(\d{2})(\d{5})(\d{4})(\d{1})/, '($1)$2-$3$4');
+    } else if (telefoneString.length === 10) {
+      // (00)0000-0000 
+      return telefoneString.replace(/(\d{2})(\d{4})(\d{4})/, '($1)$2-$3');
+    } else {
+      this.userForm.get('phone')?.setErrors({ 'invalidPhone': true });
+      return telefoneString;
+    }
   }
 }
