@@ -1,7 +1,7 @@
 <div class="text-center mt-3">
-  <form [formGroup]="userForm" (ngSubmit)="onSaveClick()">
+  <form [formGroup]="userForm"  (ngSubmit)="onSaveClick()">
     <div>
-      <button type="button" class="btn btn-primary mb-3" (click)="onSaveClick()">
+      <button type="button" class="btn btn-primary mb-3"  (click)="onSaveClick()" [disabled]="modoEdicao && userForm.invalid">
         {{ modoEdicao ? 'Salvar Alterações' : 'Editar Perfil' }}
       </button>
     </div>

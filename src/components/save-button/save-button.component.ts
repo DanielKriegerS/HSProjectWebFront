@@ -7,11 +7,8 @@ import { SharedEventsService } from '../../services/shared-events.service';
 
 @Component({
   selector: 'app-save-button',
-  template: `
-    <button class="btn btn-primary mb-3" (click)="onSaveClick()">
-      {{ modoEdicao ? 'Salvar Alterações' : 'Editar Perfil' }}
-    </button>
-  `,
+  templateUrl: './save-button.component.html',
+  styleUrls: ['./save-button.component.css']
 })
 export class SaveButtonComponent implements OnInit {
   @Input() modoEdicao: boolean = false;
